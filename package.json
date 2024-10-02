@@ -4,8 +4,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -c=local",
     "build": "ng build",
+    "build:prod": "pnpm run build -c=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier:fix": "prettier --write \"src/**/*.{html,scss}\" & prettier --write \"**/*.json\"",
