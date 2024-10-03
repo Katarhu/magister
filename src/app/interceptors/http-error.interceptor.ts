@@ -8,6 +8,10 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
+      if (error.status === 403) {
+        return throwError(() => error);
+      }
+
       return alertService.open(error.error.message).pipe(switchMap(() => throwError(() => error)));
     }),
   );

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { getCanActivateLoginGuard } from 'src/app/features/auth/guards/can-activate-login.guard';
 
 export default [
   {
@@ -12,6 +13,7 @@ export default [
       },
       {
         path: 'login',
+        canActivate: [getCanActivateLoginGuard],
         loadComponent: () => import('./login/login-page.component'),
       },
       {

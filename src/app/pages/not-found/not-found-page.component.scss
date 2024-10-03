@@ -1,0 +1,13 @@
+:host {
+  min-height: 100%;
+  display: flex;
+  background-color: #79a6ab;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.not-found-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+}

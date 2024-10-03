@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { canMatchPrivateGuard } from 'src/app/features/auth/guards/can-match-private.guard';
+import { getCanActivatePrivateGuard } from 'src/app/features/auth/guards/can-activate-private.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    canMatch: [canMatchPrivateGuard],
+    canActivate: [getCanActivatePrivateGuard],
     loadChildren: () => import('./pages/private/private.routes'),
   },
   {
@@ -12,11 +12,11 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/public/public.routes'),
   },
   {
-    path: '**',
-    loadComponent: () => import('./pages/public/not-found/not-found-page.component'),
+    path: 'not-found',
+    loadComponent: () => import('./pages/not-found/not-found-page.component'),
   },
   {
     path: '**',
-    redirectTo: 'not-found'
+    redirectTo: 'not-found',
   },
 ];
