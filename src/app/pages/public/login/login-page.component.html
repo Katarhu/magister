@@ -1,1 +1,26 @@
-<p>login-page works!</p>
+<div class="login-page-banner">
+  <img ngSrc="assets/images/scan-illustration.jpg" priority width="880" height="560" alt="Scan Illustration" />
+</div>
+
+<mat-card>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="handleFormSubmit()">
+    <div class="login-form-greeting">
+      <h2 class="login-form-title">Welcome back!</h2>
+      <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, in! </span>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" />
+    </mat-form-field>
+
+    <button mat-raised-button>Log In</button>
+
+    <span class="login-page-redirect">Don't have an account? You can <a routerLink="/register">create a new one.</a></span>
+  </form>
+</mat-card>

@@ -3,15 +3,21 @@ import { Routes } from '@angular/router';
 export default [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'login',
-    loadComponent: () => import('./register/register-page.component'),
-  },
-  {
-    path: 'register',
-    loadComponent: () => import('./login/login-page.component'),
+    loadComponent: () => import('./layout/layout.component'),
+    children: [
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+      {
+        path: 'login',
+        loadComponent: () => import('./login/login-page.component'),
+      },
+      {
+        path: 'register',
+        loadComponent: () => import('./register/register-page.component'),
+      },
+    ],
   },
 ] satisfies Routes;

@@ -1,1 +1,35 @@
-<p>register-page works!</p>
+<div class="register-page-banner">
+  <img ngSrc="assets/images/radiography-illustration.jpg" priority width="700" height="700" alt="Scan Illustration" />
+</div>
+
+<mat-card>
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
+    <div class="register-form-greeting">
+      <h2 class="register-form-title">Welcome back!</h2>
+      <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, in! </span>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-checkbox formControlName="consent">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, dolorem.
+    </mat-checkbox>
+
+    <button mat-raised-button>Register</button>
+
+    <span class="register-page-redirect">Already have an account? You can <a routerLink="/login">log in.</a></span>
+  </form>
+</mat-card>

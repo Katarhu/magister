@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 8rem;
+  align-items: center;
+  max-width: 100%;
+  height: 100%;
+
+  padding-inline: 2rem;
+}
+
+.register-page-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.register-page-banner-text {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.register-form-title {
+  margin-bottom: 0;
+}
+
+.register-form {
+  min-width: 25rem;
+  max-width: 35rem;
+  padding: 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.register-submit-button {
+  background-color: #5ae4a7;
+}
+
+.register-page-redirect {
+  font-size: 0.9rem;
+  text-align: center;
+}

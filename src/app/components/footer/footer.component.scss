@@ -1,0 +1,27 @@
+.footer {
+  background-color: #faf9fd;
+  border-top: 1px solid #b6b6b9;
+  padding: 2rem 4rem;
+  color: #282b36;
+  font-size: 0.85rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-contacts-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-link {
+  color: #282b36;
+  font-weight: 500;
+}
+
+.footer-contact-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
