@@ -4,10 +4,10 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-global-loader',
-  standalone: true,
-  imports: [MatProgressSpinner],
   templateUrl: './global-loader.component.html',
   styleUrl: './global-loader.component.scss',
+  standalone: true,
+  imports: [MatProgressSpinner],
 })
 export class GlobalLoaderComponent {
   private readonly loaderService = inject(GlobalLoaderService);

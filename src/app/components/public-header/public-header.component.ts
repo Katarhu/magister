@@ -3,10 +3,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-public-header',
-  standalone: true,
-  imports: [RouterLink],
   templateUrl: './public-header.component.html',
   styleUrl: './public-header.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink],
 })
 export class PublicHeaderComponent {}

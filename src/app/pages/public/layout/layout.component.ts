@@ -5,10 +5,10 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @Component({
   selector: 'app-public-layout',
-  standalone: true,
-  imports: [PublicHeaderComponent, RouterOutlet, FooterComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PublicHeaderComponent, RouterOutlet, FooterComponent],
 })
 export default class LayoutComponent {}

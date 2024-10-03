@@ -9,10 +9,10 @@ import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, GlobalLoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  standalone: true,
+  imports: [RouterOutlet, GlobalLoaderComponent],
 })
 export class AppComponent implements OnInit {
   private readonly usersService = inject(UsersService);

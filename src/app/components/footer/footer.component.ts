@@ -3,10 +3,10 @@ import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
-  imports: [MatIcon],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [MatIcon],
 })
 export class FooterComponent {}

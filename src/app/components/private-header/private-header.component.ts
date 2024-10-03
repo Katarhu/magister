@@ -6,10 +6,10 @@ import { MatButton, MatMiniFabButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-private-header',
-  standalone: true,
-  imports: [RouterLink, MatMenu, MatIcon, MatMenuTrigger, MatMiniFabButton, MatButton],
   templateUrl: './private-header.component.html',
   styleUrl: './private-header.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink, MatMenu, MatIcon, MatMenuTrigger, MatMiniFabButton, MatButton],
 })
 export class PrivateHeaderComponent {}
