@@ -34,7 +34,7 @@ export class MockInterceptorRegistryService {
         if (callback && typeof callback === 'function') {
           const params = this.extractParamsFromUrl(patternUrl, req.url);
           const queryParams = this.extractQueryParams(req.url);
-          return callback(req, params, queryParams);
+          return callback(req, params, queryParams).pipe(delay(500));
         }
       }
     }

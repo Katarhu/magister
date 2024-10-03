@@ -1,0 +1,10 @@
+.global-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(112, 112, 115, 0.4);
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

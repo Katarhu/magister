@@ -1,20 +1,23 @@
 import { HttpErrorResponse, HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
 import { MockInterceptorRegistryService } from 'src/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
 import { environment } from 'src/environments/environment';
-import { ILoginRequest } from 'src/app/features/auth/models/auth-http.models';
+import { LoginRequestBody, RegisterRequestBody } from 'src/app/features/auth/models/auth-http.models';
 import { of, throwError } from 'rxjs';
 
 export const authMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const registry = new MockInterceptorRegistryService();
 
   registry.post(environment.endpoints.auth.register, req => {
-    const username = (<HttpRequest<ILoginRequest>>req).body?.username;
+    const username = (<HttpRequest<RegisterRequestBody>>req).body?.username;
 
-    if (username === 'username_exists') {
+    if (username === 'error@g') {
       return throwError(
         () =>
           new HttpErrorResponse({
             status: 400,
+            error: {
+              message: 'Username already registered',
+            },
           }),
       );
     }
@@ -27,13 +30,16 @@ export const authMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandler
   });
 
   registry.post(environment.endpoints.auth.login, req => {
-    const username = (<HttpRequest<ILoginRequest>>req).body?.username;
+    const username = (<HttpRequest<LoginRequestBody>>req).body?.username;
 
-    if (username === 'username_error') {
+    if (username === 'error') {
       return throwError(
         () =>
           new HttpErrorResponse({
             status: 400,
+            error: {
+              message: 'Incorrect username or password',
+            },
           }),
       );
     }
