@@ -5,11 +5,13 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .private-header-logo {
   color: #282b36;
   font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .private-header-menu-buttons {

@@ -10,5 +10,8 @@ export const environment = {
     users: {
       me: `${API_URL}/users/me`,
     },
+    analysis: {
+      predict: `${API_URL}/predict`,
+    },
   },
 };
