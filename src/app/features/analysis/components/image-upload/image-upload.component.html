@@ -1,0 +1,20 @@
+<div
+  class="image-upload-region"
+  (drop)="onFileDropped($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  [ngClass]="{ dropzone: true, 'image-upload-region-hover': isHoveringOverDropZone }">
+  <button mat-button (click)="fileInput.click()">Choose a file to upload <mat-icon>folder_open</mat-icon></button>
+
+  <span class="image-upload-text">Drag and drop your image.</span>
+
+  <input hidden type="file" #fileInput accept=".jpg, .jpeg, .png" (change)="handleFileSelectChange($event)" />
+</div>
+
+<button
+  class="image-upload-button"
+  mat-raised-button
+  [disabled]="uploadedImage() === null"
+  (click)="handleUploadImage()">
+  Upload image
+</button>

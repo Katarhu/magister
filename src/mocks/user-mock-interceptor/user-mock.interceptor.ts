@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { of, throwError } from 'rxjs';
 import { HttpErrorResponse, HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
 
-let shouldProduceLoginError = true;
+let shouldProduceLoginError = false;
 
 export const userMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const registry = new MockInterceptorRegistryService();

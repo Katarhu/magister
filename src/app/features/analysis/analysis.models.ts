@@ -5,3 +5,9 @@ export interface IAnalysis {
   result: string;
   created_at: Date;
 }
+
+export interface IAnalysisImage {
+  mediaType: string;
+  name: string;
+  data: string;
+}

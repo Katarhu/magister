@@ -14,6 +14,10 @@ export default [
         path: 'home',
         loadComponent: () => import('./main/main-page.component'),
       },
+      {
+        path: 'analyses',
+        loadComponent: () => import('./analyses/analyses-page.component'),
+      },
     ],
   },
 ] satisfies Routes;

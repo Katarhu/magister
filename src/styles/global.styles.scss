@@ -32,6 +32,7 @@ fieldset {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: #282b36;
 }
 
 ul {
@@ -44,4 +45,9 @@ a {
 
 .page-content {
   flex: 1;
+}
+
+.mdc-snackbar .mat-mdc-snack-bar-label,
+.mdc-snackbar .mdc-button__label {
+  color: #ffffff;
 }

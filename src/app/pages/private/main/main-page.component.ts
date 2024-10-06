@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { MatButton } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -6,6 +9,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './main-page.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
+  imports: [NgOptimizedImage, MatButton, RouterLink],
 })
 export default class MainPageComponent {}
