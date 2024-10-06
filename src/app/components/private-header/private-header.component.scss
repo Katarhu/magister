@@ -19,3 +19,14 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.private-header-navigation {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.private-header-links-list {
+  display: flex;
+  gap: 0.5rem;
+}

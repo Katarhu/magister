@@ -15,6 +15,10 @@ export default [
         loadComponent: () => import('./main/main-page.component'),
       },
       {
+        path: 'profile',
+        loadComponent: () => import('./profile/profile-page.component'),
+      },
+      {
         path: 'analyses',
         loadComponent: () => import('./analyses/analyses-page.component'),
       },

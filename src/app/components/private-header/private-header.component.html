@@ -1,5 +1,13 @@
 <header class="private-header">
-  <a class="private-header-logo" routerLink="/">MedSight</a>
+  <div class="private-header-navigation">
+    <a class="private-header-logo" routerLink="/">MedSight</a>
+
+    <nav>
+      <ul class="private-header-links-list">
+        <li><a mat-button routerLink="/analyses">Analyze</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <button mat-mini-fab [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
@@ -7,7 +15,7 @@
 
   <mat-menu #menu="matMenu">
     <div class="private-header-menu-buttons">
-      <button mat-button><mat-icon>person</mat-icon> Profile</button>
+      <button mat-button routerLink="/profile"><mat-icon>person</mat-icon> Profile</button>
       <button mat-button><mat-icon>settings</mat-icon> Settings</button>
     </div>
   </mat-menu>

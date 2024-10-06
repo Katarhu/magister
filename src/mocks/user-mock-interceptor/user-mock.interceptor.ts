@@ -34,5 +34,9 @@ export const userMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandler
     );
   });
 
+  registry.patch(environment.endpoints.users.changePassword, () => {
+    return of(new HttpResponse());
+  });
+
   return registry.processRequest$(req, next);
 };
