@@ -1,5 +1,9 @@
 <div class="analyses-page-list">
-  <app-analyses-list />
+  @if (isAnalysesLoading()) {
+    <app-analyses-list-loader />
+  } @else {
+    <app-analyses-list />
+  }
 </div>
 
 <app-image-upload />

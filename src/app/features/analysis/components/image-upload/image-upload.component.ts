@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -7,6 +7,7 @@ import { NgClass } from '@angular/common';
 import { ImageUploadConstants } from '@features/analysis/components/image-upload/image-upload.constants';
 import { AnalysisStore } from '@features/analysis/store/analysis.store';
 import { IAnalysisImage } from '@features/analysis/analysis.models';
+import { MatCard } from '@angular/material/card';
 
 @Component({
   selector: 'app-image-upload',
@@ -14,13 +15,16 @@ import { IAnalysisImage } from '@features/analysis/analysis.models';
   styleUrl: './image-upload.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButton, MatIcon, NgClass],
+  imports: [MatButton, MatIcon, NgClass, MatCard],
 })
 export class ImageUploadComponent {
   private readonly snackbar = inject(MatSnackBar);
   private readonly analysisStore = inject(AnalysisStore);
 
   uploadedImage = signal<IAnalysisImage | null>(null);
+  uploadedImageSrc = computed(() =>
+    this.uploadedImage() === null ? null : `data:image/png;base64,${this.uploadedImage()!.data}`,
+  );
   isHoveringOverDropZone = signal<boolean>(false);
 
   handleUploadImage(): void {
@@ -29,6 +33,12 @@ export class ImageUploadComponent {
     this.analysisStore.predict({
       image: this.uploadedImage() as IAnalysisImage,
     });
+
+    this.cleanUploadedImage();
+  }
+
+  cleanUploadedImage() {
+    this.uploadedImage.set(null);
   }
 
   handleFileSelectChange(event: Event): void {

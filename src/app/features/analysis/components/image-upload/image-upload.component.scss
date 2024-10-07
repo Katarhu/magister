@@ -1,6 +1,6 @@
 :host {
   width: 100%;
-  max-width: 28rem;
+  max-width: 24rem;
 
   display: flex;
   flex-direction: column;
@@ -8,10 +8,14 @@
 
   padding: 2rem;
   border-left: 1px solid #b6b6b9;
+
+  --image-upload-region-height: 16rem;
+  --preview-image-size: 16rem;
 }
 
 .image-upload-region {
-  height: 16rem;
+  height: var(--image-upload-region-height);
+  overflow: hidden;
   width: 100%;
 
   border: 1px dashed #b6b6b9;
@@ -37,4 +41,44 @@
 .image-upload-text {
   font-weight: 500;
   font-size: 0.9rem;
+}
+
+.image-upload-region-uploaded {
+  animation: region-disappear 0.5s cubic-bezier(0.13, 1.05, 0.44, 0.96) forwards;
+}
+
+.image-upload-preview-image-container {
+  height: 0;
+  text-align: center;
+  overflow: hidden;
+  animation: region-appear 0.5s 0.5s cubic-bezier(0.13, 1.05, 0.44, 0.96) forwards;
+}
+
+.image-upload-preview-image {
+  width: 100%;
+  height: var(--preview-image-size);
+  object-fit: contain;
+}
+
+@keyframes region-disappear {
+  0% {
+    height: var(--image-upload-region-height);
+  }
+
+  100% {
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+  }
+}
+
+@keyframes region-appear {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    display: block;
+    height: var(--preview-image-size);
+  }
 }

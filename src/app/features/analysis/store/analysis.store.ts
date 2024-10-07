@@ -1,4 +1,4 @@
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
 import { ANALYSIS_INITIAL_STATE } from '@features/analysis/store/analysis.state';
 import { setEntities, setEntity, withEntities } from '@ngrx/signals/entities';
 import { IAnalysis } from '@features/analysis/analysis.models';
@@ -18,7 +18,7 @@ export const AnalysisStore = signalStore(
     const analysisHttpService = inject(AnalysisHttpService);
 
     return {
-      fetchPredictedAnalysis: rxMethod(
+      fetchPredictedAnalysis: rxMethod<void>(
         pipe(
           tap(() => patchState(store, { loading: true })),
           switchMap(() =>
@@ -37,15 +37,14 @@ export const AnalysisStore = signalStore(
       ),
       predict: rxMethod<PredictRequestBody>(
         pipe(
-          tap(() => patchState(store, { loading: true })),
           switchMap(body =>
             analysisHttpService.predict$(body).pipe(
               tapResponse({
-                next: analysis => patchState(store, setEntity(analysis), { loading: false }),
+                next: analysis => patchState(store, setEntity(analysis)),
                 error: (error: HttpErrorResponse) => {
                   const errorMessage = error.error.message;
 
-                  patchState(store, { error: errorMessage, loading: false });
+                  patchState(store, { error: errorMessage });
                 },
               }),
             ),
@@ -53,5 +52,10 @@ export const AnalysisStore = signalStore(
         ),
       ),
     };
+  }),
+  withHooks({
+    onInit(store) {
+      store.fetchPredictedAnalysis();
+    },
   }),
 );

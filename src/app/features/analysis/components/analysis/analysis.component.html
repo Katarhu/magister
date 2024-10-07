@@ -1,2 +1,13 @@
-<div>{{ analysis().id }}</div>
-<div>{{ analysis().result }}</div>
+<mat-card class="analysis-card" [routerLink]="['analyses', analysis().id]">
+  <div class="analysis-card-image-container">
+    <img class="analysis-card-image" [src]="analysis().image_url" alt="Analysis result for {{ analysis().result }}" />
+  </div>
+
+  <div class="analysis-card-info">
+    <span class="analysis-card-result">{{ analysis().result }}</span>
+
+    <span class="analysis-card-date">{{ displayDate() }}</span>
+  </div>
+
+  <button mat-button>Preview Result <mat-icon>arrow_right</mat-icon></button>
+</mat-card>
