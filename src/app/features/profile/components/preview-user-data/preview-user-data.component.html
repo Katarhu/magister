@@ -1,0 +1,17 @@
+@if (user$ | async; as user) {
+  <mat-card class="preview-user-data-card">
+    <form class="preview-user-data-form">
+      <h2 class="preview-user-data-title">Profile information</h2>
+
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" disabled matInput [value]="user.username" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="text" disabled matInput [value]="user.email" />
+      </mat-form-field>
+    </form>
+  </mat-card>
+}

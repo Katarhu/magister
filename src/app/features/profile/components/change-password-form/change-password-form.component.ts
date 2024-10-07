@@ -13,11 +13,11 @@ import { ChangePasswordFormValidators } from '@features/profile/components/chang
 
 @Component({
   selector: 'app-change-password-form',
-  standalone: true,
-  imports: [MatCard, MatFormField, MatInput, MatLabel, MatButton, ReactiveFormsModule],
   templateUrl: './change-password-form.component.html',
   styleUrl: './change-password-form.component.scss',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [MatCard, MatFormField, MatInput, MatLabel, MatButton, ReactiveFormsModule],
 })
 export class ChangePasswordFormComponent {
   private readonly fb = inject(NonNullableFormBuilder);
