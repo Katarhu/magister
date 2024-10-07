@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
-import { MockInterceptorRegistryService } from 'src/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
-import { environment } from 'src/environments/environment';
-import { LoginRequestBody, RegisterRequestBody } from 'src/app/features/auth/models/auth-http.models';
+import { MockInterceptorRegistryService } from '@/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
+import { environment } from '@environments/environment';
+import { LoginRequestBody, RegisterRequestBody } from '@features/auth/models/auth-http.models';
 import { of, throwError } from 'rxjs';
 
 export const authMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {

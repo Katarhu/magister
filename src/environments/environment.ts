@@ -9,7 +9,7 @@ export const environment = {
     },
     users: {
       me: `${API_URL}/users/me`,
-      changePassword: `${API_URL}/users/password`
+      changePassword: `${API_URL}/users/password`,
     },
     analysis: {
       predict: `${API_URL}/analyses/predict`,

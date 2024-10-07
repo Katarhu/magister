@@ -1,7 +1,5 @@
-import { httpErrorInterceptor } from 'src/app/interceptors/http-error.interceptor';
+import { httpErrorInterceptor } from '@app/interceptors/http-error.interceptor';
 
 export namespace InterceptorRegistry {
-  export const getInterceptors = () => ([
-    httpErrorInterceptor
-  ]);
+  export const getInterceptors = () => [httpErrorInterceptor];
 }

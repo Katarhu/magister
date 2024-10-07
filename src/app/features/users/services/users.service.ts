@@ -1,21 +1,16 @@
-import { inject, Injectable } from '@angular/core';
-import { UsersApiService } from 'src/app/features/users/services/users.api.service';
-import { GlobalLoaderService } from 'src/app/services/global-loader.service';
-import { IUser } from 'src/app/features/users/users.models';
+import { Injectable } from '@angular/core';
+import { IUser } from '@features/users/users.models';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  private readonly userApiService = inject(UsersApiService);
-  private readonly loaderService = inject(GlobalLoaderService);
-
   user$ = new BehaviorSubject<IUser | null>(null);
   error$ = new BehaviorSubject<string | null>(null);
   initialized$ = new BehaviorSubject<boolean>(false);
 
-  initialize() {
+  initialize(): void {
     this.initialized$.next(true);
   }
 

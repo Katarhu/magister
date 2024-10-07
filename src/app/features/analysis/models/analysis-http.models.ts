@@ -1,4 +1,4 @@
-import { IAnalysisImage } from 'src/app/features/analysis/analysis.models';
+import { IAnalysisImage } from '@features/analysis/analysis.models';
 
 export interface PredictRequestBody {
   image: IAnalysisImage;

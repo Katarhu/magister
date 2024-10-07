@@ -1,14 +1,14 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { ANALYSIS_INITIAL_STATE } from 'src/app/features/analysis/store/analysis.state';
+import { ANALYSIS_INITIAL_STATE } from '@features/analysis/store/analysis.state';
 import { setEntities, setEntity, withEntities } from '@ngrx/signals/entities';
-import { IAnalysis } from 'src/app/features/analysis/analysis.models';
+import { IAnalysis } from '@features/analysis/analysis.models';
 import { inject } from '@angular/core';
-import { AnalysisHttpService } from 'src/app/features/analysis/services/analysis-http.service';
+import { AnalysisHttpService } from '@features/analysis/services/analysis-http.service';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap } from 'rxjs';
 import { tapResponse } from '@ngrx/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PredictRequestBody } from 'src/app/features/analysis/models/analysis-http.models';
+import { PredictRequestBody } from '@features/analysis/models/analysis-http.models';
 
 export const AnalysisStore = signalStore(
   { providedIn: 'root' },

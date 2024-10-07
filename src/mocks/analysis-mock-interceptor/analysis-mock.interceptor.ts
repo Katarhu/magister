@@ -1,8 +1,8 @@
 import { HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
-import { MockInterceptorRegistryService } from 'src/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
-import { environment } from 'src/environments/environment';
+import { MockInterceptorRegistryService } from '@/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
+import { environment } from '@environments/environment';
 import { of } from 'rxjs';
-import { IAnalysis } from 'src/app/features/analysis/analysis.models';
+import { IAnalysis } from '@features/analysis/analysis.models';
 
 export const analysisMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const registry = new MockInterceptorRegistryService();

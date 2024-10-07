@@ -4,12 +4,12 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChangePasswordForm } from 'src/app/features/profile/components/change-password-form/change-password-form.models';
-import { ProfileHttpService } from 'src/app/features/profile/services/profile-http.service';
-import { GlobalLoaderService } from 'src/app/services/global-loader.service';
-import { ChangePasswordRequestBody } from 'src/app/features/profile/models/profile-http.models';
+import { ChangePasswordForm } from '@features/profile/components/change-password-form/change-password-form.models';
+import { ProfileHttpService } from '@features/profile/services/profile-http.service';
+import { GlobalLoaderService } from '@services/global-loader.service';
+import { ChangePasswordRequestBody } from '@features/profile/models/profile-http.models';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ChangePasswordFormValidators } from 'src/app/features/profile/components/change-password-form/change-password-form.validators';
+import { ChangePasswordFormValidators } from '@features/profile/components/change-password-form/change-password-form.validators';
 
 @Component({
   selector: 'app-change-password-form',

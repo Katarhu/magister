@@ -22,7 +22,18 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "resolveJsonModule": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/app/components/*"],
+      "@features/*": ["src/app/features/*"],
+      "@interceptors/*": ["src/app/interceptors/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@services/*": ["src/app/services/*"],
+      "@environments/*": ["src/environments/*"],
+      "@mocks/*": ["src/mocks/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

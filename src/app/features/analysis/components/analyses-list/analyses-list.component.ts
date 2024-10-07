@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AnalysisStore } from '@features/analysis/store/analysis.store';
+import { AnalysisComponent } from '@features/analysis/components/analysis/analysis.component';
 
 @Component({
   selector: 'app-analyses-list',
@@ -6,6 +8,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './analyses-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [],
+  imports: [AnalysisComponent],
 })
-export class AnalysesListComponent {}
+export class AnalysesListComponent {
+  private readonly analysesStore = inject(AnalysisStore);
+
+  predictedAnalyses = this.analysesStore.entities;
+}

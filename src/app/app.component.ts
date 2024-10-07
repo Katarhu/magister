@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GlobalLoaderComponent } from 'src/app/features/global-loader/global-loader.component';
-import { UsersService } from 'src/app/features/users/services/users.service';
-import { UsersApiService } from 'src/app/features/users/services/users.api.service';
-import { GlobalLoaderService } from 'src/app/services/global-loader.service';
+import { GlobalLoaderComponent } from '@features/global-loader/global-loader.component';
+import { UsersService } from '@features/users/services/users.service';
+import { UsersApiService } from '@features/users/services/users.api.service';
+import { GlobalLoaderService } from '@services/global-loader.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { finalize } from 'rxjs';
 

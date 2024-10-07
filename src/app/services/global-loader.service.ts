@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { finalize, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GlobalLoaderService {
-  isLoading = false;
+  isLoading = signal<boolean>(false);
 
-  showUntilCompleted$<T>(obs$: Observable<T>) {
-    this.isLoading = true;
+  showUntilCompleted$<T>(obs$: Observable<T>): Observable<T> {
+    this.isLoading.set(true);
 
-    return obs$.pipe(finalize(() => (this.isLoading = false)));
+    return obs$.pipe(finalize(() => this.isLoading.set(false)));
   }
 }

@@ -5,15 +5,16 @@ import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginForm } from 'src/app/pages/public/login/login-page.models';
+import { LoginForm } from '@pages/public/login/login-page.models';
 import { Router, RouterLink } from '@angular/router';
-import { AuthApiService } from 'src/app/features/auth/services/auth.api.service';
-import { LoginRequestBody } from 'src/app/features/auth/models/auth-http.models';
-import { GlobalLoaderService } from 'src/app/services/global-loader.service';
-import { switchMap, tap } from 'rxjs';
-import { UsersApiService } from 'src/app/features/users/services/users.api.service';
-import { UsersService } from 'src/app/features/users/services/users.service';
+import { AuthApiService } from '@features/auth/services/auth.api.service';
+import { GlobalLoaderService } from '@services/global-loader.service';
+import { Observable, switchMap, tap } from 'rxjs';
+import { UsersApiService } from '@features/users/services/users.api.service';
+import { UsersService } from '@features/users/services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { IUser } from '@features/users/users.models';
+import { LoginRequestBody } from '@features/auth/models/auth-http.models';
 
 @Component({
   selector: 'app-login-page',
@@ -46,7 +47,7 @@ export default class LoginPageComponent {
     password: this.fb.control('', [Validators.required]),
   });
 
-  handleFormSubmit() {
+  handleFormSubmit(): void {
     if (!this.loginForm.valid) {
       return;
     }
@@ -68,7 +69,7 @@ export default class LoginPageComponent {
     };
   }
 
-  private fetchUser$() {
+  private fetchUser$(): Observable<IUser> {
     return this.usersApiService.getUser$().pipe(
       tap({
         next: user => {

@@ -5,12 +5,12 @@ import { MatCard } from '@angular/material/card';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { NgOptimizedImage } from '@angular/common';
-import { RegisterForm } from 'src/app/pages/public/register/register-page.models';
+import { RegisterForm } from '@pages/public/register/register-page.models';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { Router, RouterLink } from '@angular/router';
-import { AuthApiService } from 'src/app/features/auth/services/auth.api.service';
-import { RegisterRequestBody } from 'src/app/features/auth/models/auth-http.models';
-import { GlobalLoaderService } from 'src/app/services/global-loader.service';
+import { AuthApiService } from '@features/auth/services/auth.api.service';
+import { RegisterRequestBody } from '@features/auth/models/auth-http.models';
+import { GlobalLoaderService } from '@services/global-loader.service';
 
 @Component({
   selector: 'app-register-page',
@@ -44,7 +44,7 @@ export default class RegisterPageComponent {
     consent: this.fb.control(false, [Validators.requiredTrue]),
   });
 
-  handleFormSubmit() {
+  handleFormSubmit(): void {
     if (!this.registerForm.valid) {
       return;
     }

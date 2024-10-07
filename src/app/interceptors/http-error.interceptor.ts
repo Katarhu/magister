@@ -1,4 +1,4 @@
-import { AlertService } from 'src/app/services/alert.service';
+import { AlertService } from '@services/alert.service';
 import { inject } from '@angular/core';
 import { HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { catchError, switchMap, throwError } from 'rxjs';

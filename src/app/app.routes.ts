@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { getCanActivatePrivateGuard } from 'src/app/features/auth/guards/can-activate-private.guard';
+import { canActivatePrivateGuard } from '@features/auth/guards/can-activate-private.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    canActivate: [getCanActivatePrivateGuard],
+    canActivate: [canActivatePrivateGuard],
     loadChildren: () => import('./pages/private/private.routes'),
   },
   {

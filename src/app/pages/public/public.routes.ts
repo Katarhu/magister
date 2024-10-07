@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { getCanActivateLoginGuard } from 'src/app/features/auth/guards/can-activate-login.guard';
+import { getCanActivateLoginGuard } from '@features/auth/guards/can-activate-login.guard';
 
 export default [
   {

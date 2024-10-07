@@ -3,7 +3,7 @@
   (drop)="onFileDropped($event)"
   (dragover)="onDragOver($event)"
   (dragleave)="onDragLeave($event)"
-  [ngClass]="{ dropzone: true, 'image-upload-region-hover': isHoveringOverDropZone }">
+  [ngClass]="{ dropzone: true, 'image-upload-region-hover': isHoveringOverDropZone() }">
   <button mat-button (click)="fileInput.click()">Choose a file to upload <mat-icon>folder_open</mat-icon></button>
 
   <span class="image-upload-text">Drag and drop your image.</span>

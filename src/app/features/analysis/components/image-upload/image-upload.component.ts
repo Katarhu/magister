@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ImageUploadFunctions } from 'src/app/features/analysis/components/image-upload/image-upload.functions';
+import { ImageUploadFunctions } from '@features/analysis/components/image-upload/image-upload.functions';
 import { NgClass } from '@angular/common';
-import { ImageUploadConstants } from 'src/app/features/analysis/components/image-upload/image-upload.constants';
-import { AnalysisStore } from 'src/app/features/analysis/store/analysis.store';
-import { IAnalysisImage } from 'src/app/features/analysis/analysis.models';
+import { ImageUploadConstants } from '@features/analysis/components/image-upload/image-upload.constants';
+import { AnalysisStore } from '@features/analysis/store/analysis.store';
+import { IAnalysisImage } from '@features/analysis/analysis.models';
 
 @Component({
   selector: 'app-image-upload',
@@ -21,7 +21,7 @@ export class ImageUploadComponent {
   private readonly analysisStore = inject(AnalysisStore);
 
   uploadedImage = signal<IAnalysisImage | null>(null);
-  isHoveringOverDropZone = false;
+  isHoveringOverDropZone = signal<boolean>(false);
 
   handleUploadImage(): void {
     if (this.uploadedImage() === null) return;
@@ -40,7 +40,7 @@ export class ImageUploadComponent {
   onFileDropped(event: DragEvent): void {
     event.stopPropagation();
     event.preventDefault();
-    this.isHoveringOverDropZone = false;
+    this.isHoveringOverDropZone.set(false);
 
     const file = ImageUploadFunctions.extractDataTransferFile(event);
 
@@ -50,13 +50,13 @@ export class ImageUploadComponent {
   onDragOver(event: DragEvent): void {
     event.stopPropagation();
     event.preventDefault();
-    this.isHoveringOverDropZone = true;
+    this.isHoveringOverDropZone.set(true);
   }
 
   onDragLeave(event: DragEvent): void {
     event.stopPropagation();
     event.preventDefault();
-    this.isHoveringOverDropZone = false;
+    this.isHoveringOverDropZone.set(false);
   }
 
   private prepareFile(file: File | null): void {

@@ -1,5 +1,5 @@
-import { MockInterceptorRegistryService } from 'src/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
-import { environment } from 'src/environments/environment';
+import { MockInterceptorRegistryService } from '@/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
+import { environment } from '@environments/environment';
 import { of, throwError } from 'rxjs';
 import { HttpErrorResponse, HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
 

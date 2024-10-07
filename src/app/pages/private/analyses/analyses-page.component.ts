@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ImageUploadComponent } from 'src/app/features/analysis/components/image-upload/image-upload.component';
-import { AnalysesListComponent } from 'src/app/features/analysis/components/analyses-list/analyses-list.component';
+import { ImageUploadComponent } from '@features/analysis/components/image-upload/image-upload.component';
+import { AnalysesListComponent } from '@features/analysis/components/analyses-list/analyses-list.component';
 
 @Component({
   selector: 'app-analyses-page',
