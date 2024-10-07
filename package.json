@@ -7,10 +7,7 @@
     "start": "ng serve -c=local",
     "build": "ng build",
     "build:prod": "pnpm run build -c=production",
-<<<<<<< Updated upstream
-=======
     "build:exe": "pnpm run build -c=production && pkg ./tools/pkg",
->>>>>>> Stashed changes
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier:fix": "prettier --write \"src/**/*.{html,scss}\" & prettier --write \"**/*.json\"",

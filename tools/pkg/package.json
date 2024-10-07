@@ -1,0 +1,21 @@
+{
+  "name": "medsight",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "bin": "server.js",
+  "license": "ISC",
+  "pkg": {
+    "assets": [
+      "../../dist/app/assets/**/*",
+      "../../dist/app/**/*"
+    ],
+    "scripts": [
+      "dist/app/*.js"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "pkg-build"
+  }
+}
