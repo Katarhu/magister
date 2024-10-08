@@ -12,12 +12,9 @@ import { AnalysesListLoaderComponent } from '@features/analyses/components/analy
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ImageUploadComponent, AnalysesListComponent, AnalysesListLoaderComponent],
 })
-export default class AnalysesPageComponent implements OnInit {
+export default class AnalysesPageComponent {
   private readonly analysisStore = inject(AnalysesStore);
 
+  predictedAnalyses = this.analysisStore.analyses;
   isAnalysesLoading = this.analysisStore.loading;
-
-  ngOnInit() {
-    this.analysisStore.fetchPredictedAnalysis();
-  }
 }

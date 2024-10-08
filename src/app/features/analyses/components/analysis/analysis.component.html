@@ -1,0 +1,28 @@
+<section class="analysis-card">
+  <div class="analysis-info">
+    <header class="analysis-header">
+      <span class="analysis-result">{{ analysis().result }}</span>
+
+      <span class="analysis-creation-date">{{ formattedDate() }}</span>
+    </header>
+
+    <div class="analysis-description-section">
+      <span class="analysis-section-title">Analysis description:</span>
+
+      <span class="analysis-result-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aspernatur aut consequatur corporis
+        deserunt dolores ea eius enim eos error ex exercitationem id illo illum, impedit inventore labore maxime
+        mollitia neque nisi non officia perspiciatis quod rem repudiandae, sequi sint, tempora temporibus voluptatum? Ad
+        distinctio doloremque error esse laborum, magni maiores maxime natus necessitatibus, nisi sapiente unde
+        voluptas. Adipisci consequuntur enim expedita in iusto minima nisi numquam, optio quibusdam reprehenderit
+        suscipit tempora, voluptatum! Ab ad, aspernatur consequatur culpa deserunt inventore itaque laborum officia quam
+        quas quisquam rem veritatis voluptas. Aliquid architecto beatae, consequatur dolores hic repellendus sint ullam
+        voluptate?
+      </span>
+    </div>
+  </div>
+
+  <div class="analysis-image-container">
+    <img class="analysis-image" [src]="analysis().image_url" alt="" />
+  </div>
+</section>

@@ -1,1 +1,14 @@
-<p>analysis-page works!</p>
+@if (isAnalysesLoading()) {
+  <app-analysis-skeleton-loader />
+} @else if (analysis()) {
+  <app-analysis [analysis]="analysis()!" />
+} @else {
+  <div class="analysis-page-not-found">
+    <img
+      class="analysis-page-not-found-gif"
+      src="https://cdn.dribbble.com/users/4846149/screenshots/9987507/media/cc997a6e31afeb828c0345319359db39.gif"
+      alt="Analysis with such id is not found gif" />
+    <span class="analysis-not-found-text">Analysis with such identifier is not found</span>
+    <button mat-raised-button routerLink="/analyses">Go back</button>
+  </div>
+}

@@ -1,0 +1,75 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding-inline: 2.5rem;
+}
+
+.analysis-card {
+  width: 100%;
+  max-width: 64rem;
+  height: 100%;
+
+  background-color: var(--mdc-elevated-card-container-color);
+  box-shadow: var(--mdc-elevated-card-container-elevation, var(--mat-app-level1));
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+
+  padding: 2rem 2.5rem;
+}
+
+.analysis-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 20rem;
+}
+
+.analysis-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  border-radius: 1rem;
+}
+
+.analysis-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.analysis-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.analysis-description-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.analysis-result {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.analysis-creation-date {
+  font-weight: 300;
+}
+
+.analysis-section-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: justify-all;
+}
+
+.analysis-result-description {
+  line-height: 1.5rem;
+}

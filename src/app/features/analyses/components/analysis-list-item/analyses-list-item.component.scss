@@ -24,11 +24,15 @@
 }
 
 .analysis-card-result {
-  font-size: 1.25rem;
   font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-shrink: 1;
 }
 
 .analysis-card-info {
+  min-width: 0;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -37,4 +41,6 @@
 .analysis-card-date {
   font-size: 0.85rem;
   font-weight: 300;
+  white-space: nowrap;
+  flex-shrink: 0;
 }

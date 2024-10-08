@@ -1,0 +1,70 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  padding-inline: 2.5rem;
+}
+
+.analysis-skeleton-card {
+  width: 100%;
+  max-width: 64rem;
+  height: 100%;
+
+  background-color: var(--mdc-elevated-card-container-color);
+  box-shadow: var(--mdc-elevated-card-container-elevation, var(--mat-app-level1));
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+
+  padding: 2rem 2.5rem;
+}
+
+.analysis-skeleton-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.analysis-skeleton-result {
+  height: 1.5rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.analysis-skeleton-date {
+  height: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.analysis-skeleton-description-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.analysis-skeleton-title {
+  margin-bottom: 0.5rem;
+}
+
+.analysis-skeleton-description {
+  height: 10rem;
+}
+
+.analysis-skeleton-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 0.5rem;
+}
+
+.analysis-skeleton-image {
+  width: 100%;
+  max-width: 20rem;
+  height: 20rem;
+
+  border-radius: 1rem;
+}

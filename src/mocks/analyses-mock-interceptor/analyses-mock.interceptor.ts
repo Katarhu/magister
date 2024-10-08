@@ -16,7 +16,7 @@ export const analysesMockInterceptor = (req: HttpRequest<unknown>, next: HttpHan
             user_id: 2,
             image_url:
               'https://domf5oio6qrcr.cloudfront.net/medialibrary/6839/ddca3f92-4b8e-4672-bb6b-f3594ad4e304.jpg',
-            result: 'Analysis',
+            result: ['Analysis'],
             created_at: new Date(),
           },
           {
@@ -24,14 +24,14 @@ export const analysesMockInterceptor = (req: HttpRequest<unknown>, next: HttpHan
             user_id: 2,
             image_url:
               'https://domf5oio6qrcr.cloudfront.net/medialibrary/6839/ddca3f92-4b8e-4672-bb6b-f3594ad4e304.jpg',
-            result: 'Bad Analysis',
+            result: ['Bad Analysis', 'Another Bad'],
             created_at: new Date('03/10/2024'),
           },
           {
             id: 3,
             user_id: 2,
             image_url: 'https://medlineplus.gov/images/Xray.jpg',
-            result: 'Bad Analysis',
+            result: ['Bad Analysis'],
             created_at: new Date('03/10/2024'),
           },
         ],
@@ -46,7 +46,7 @@ export const analysesMockInterceptor = (req: HttpRequest<unknown>, next: HttpHan
           id: 4,
           user_id: 2,
           image_url: 'https://domf5oio6qrcr.cloudfront.net/medialibrary/6839/ddca3f92-4b8e-4672-bb6b-f3594ad4e304.jpg',
-          result: 'Analysis',
+          result: ['Analysis'],
           created_at: new Date('02/10/2024'),
         },
       }),

@@ -1,0 +1,22 @@
+.analysis-page-not-found {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 2rem 2.5rem;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.analysis-page-not-found-gif {
+  width: 100%;
+}
+
+.analysis-not-found-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
