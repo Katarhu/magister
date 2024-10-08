@@ -36,8 +36,6 @@ export class ChangePasswordFormComponent {
   handleFormSubmit(): void {
     if (this.changePasswordForm.invalid) return;
 
-    console.log(this.changePasswordForm);
-
     const changePasswordBody = this.buildChangePasswordRequestBody();
 
     const stream$ = this.profileHttpService.changePassword$(changePasswordBody);
@@ -45,6 +43,7 @@ export class ChangePasswordFormComponent {
     this.loaderService.showUntilCompleted$(stream$).subscribe({
       next: () => {
         this.snackbar.open('Password changed successfuly', 'Dismiss', { duration: 5000 });
+        this.changePasswordForm.reset();
       },
     });
   }
