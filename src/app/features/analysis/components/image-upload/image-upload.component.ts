@@ -8,6 +8,7 @@ import { ImageUploadConstants } from '@features/analysis/components/image-upload
 import { AnalysisStore } from '@features/analysis/store/analysis.store';
 import { IAnalysisImage } from '@features/analysis/analysis.models';
 import { MatCard } from '@angular/material/card';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-image-upload',
@@ -16,6 +17,21 @@ import { MatCard } from '@angular/material/card';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatButton, MatIcon, NgClass, MatCard],
+  animations: [
+    trigger('appearAnimation', [
+      transition(':enter', [
+        style(ImageUploadConstants.uploadSectionInitialStyles),
+        animate(
+          ImageUploadConstants.uploadSectionEnterEasing,
+          style(ImageUploadConstants.uploadSectionToEnteringStyles),
+        ),
+      ]),
+      transition(':leave', [
+        style(ImageUploadConstants.uploadSectionToEnteringStyles),
+        animate(ImageUploadConstants.uploadSectionLeaveEasing, style(ImageUploadConstants.uploadSectionInitialStyles)),
+      ]),
+    ]),
+  ],
 })
 export class ImageUploadComponent {
   private readonly snackbar = inject(MatSnackBar);

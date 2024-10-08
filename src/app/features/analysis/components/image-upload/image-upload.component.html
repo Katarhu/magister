@@ -1,35 +1,37 @@
-<div
-  class="image-upload-region"
-  (drop)="onFileDropped($event)"
-  (dragover)="onDragOver($event)"
-  (dragleave)="onDragLeave($event)"
-  [ngClass]="{
-    dropzone: true,
-    'image-upload-region-hover': isHoveringOverDropZone(),
-    'image-upload-region-uploaded': uploadedImage() !== null,
-  }">
-  <button mat-button (click)="fileInput.click()">Choose a file to upload <mat-icon>folder_open</mat-icon></button>
+<div class="image-upload-upload-section">
+  @if (uploadedImage() === null) {
+    <div
+      @appearAnimation
+      class="image-upload-region"
+      (drop)="onFileDropped($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      [ngClass]="{
+        dropzone: true,
+        'image-upload-region-hover': isHoveringOverDropZone(),
+      }">
+      <button mat-button (click)="fileInput.click()">Choose a file to upload <mat-icon>folder_open</mat-icon></button>
 
-  <span class="image-upload-text">Drag and drop your image.</span>
+      <span class="image-upload-text">Drag and drop your image.</span>
 
-  <input hidden type="file" #fileInput accept=".jpg, .jpeg, .png" (change)="handleFileSelectChange($event)" />
+      <input hidden type="file" #fileInput accept=".jpg, .jpeg, .png" (change)="handleFileSelectChange($event)" />
+    </div>
+  } @else {
+    <mat-card class="image-upload-preview-image-container" @appearAnimation>
+      <img class="image-upload-preview-image" [src]="uploadedImageSrc()" alt="" />
+    </mat-card>
+  }
 </div>
 
 @if (uploadedImage()) {
-  <mat-card class="image-upload-preview-image-container">
-    <img class="image-upload-preview-image" [src]="uploadedImageSrc()" alt="" />
-  </mat-card>
-}
+  <button
+    class="image-upload-button"
+    mat-raised-button
+    [disabled]="uploadedImage() === null"
+    (click)="handleUploadImage()">
+    Upload image
+  </button>
 
-<button
-  class="image-upload-button"
-  mat-raised-button
-  [disabled]="uploadedImage() === null"
-  (click)="handleUploadImage()">
-  Upload image
-</button>
-
-@if (uploadedImage()) {
   <button mat-button (click)="cleanUploadedImage()">
     <mat-icon color="danger">delete</mat-icon>
     Cancel
