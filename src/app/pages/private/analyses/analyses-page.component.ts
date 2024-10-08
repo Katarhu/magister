@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { ImageUploadComponent } from '@features/analyses/components/image-upload/image-upload.component';
 import { AnalysesListComponent } from '@features/analyses/components/analyses-list/analyses-list.component';
 import { AnalysesStore } from '@features/analyses/store/analyses.store';
@@ -12,8 +12,12 @@ import { AnalysesListLoaderComponent } from '@features/analyses/components/analy
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ImageUploadComponent, AnalysesListComponent, AnalysesListLoaderComponent],
 })
-export default class AnalysesPageComponent {
+export default class AnalysesPageComponent implements OnInit {
   private readonly analysisStore = inject(AnalysesStore);
 
   isAnalysesLoading = this.analysisStore.loading;
+
+  ngOnInit() {
+    this.analysisStore.fetchPredictedAnalysis();
+  }
 }

@@ -51,7 +51,7 @@ export const authMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandler
     );
   });
 
-  registry.post(environment.endpoints.auth.logout, () => {
+  registry.delete(environment.endpoints.auth.logout, () => {
     return of(
       new HttpResponse({
         status: 200,

@@ -19,4 +19,8 @@ export class GlobalLoaderComponent {
   get isRedirecting() {
     return this.loaderService.isRedirecting;
   }
+
+  get redirectingText() {
+    return this.loaderService.loaderText;
+  }
 }

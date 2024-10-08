@@ -16,7 +16,7 @@
   <mat-menu #menu="matMenu">
     <div class="private-header-menu-buttons">
       <button mat-button routerLink="/profile"><mat-icon>person</mat-icon> Profile</button>
-      <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+      <button mat-button (click)="logout()"><mat-icon>logout</mat-icon>Log out</button>
     </div>
   </mat-menu>
 </header>

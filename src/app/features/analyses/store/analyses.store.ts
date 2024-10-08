@@ -1,4 +1,4 @@
-import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { ANALYSES_INITIAL_STATE } from '@features/analyses/store/analyses.state';
 import { setEntities, setEntity, withEntities } from '@ngrx/signals/entities';
 import { IAnalysis } from '@features/analyses/analyses.models';
@@ -44,7 +44,7 @@ export const AnalysesStore = signalStore(
           switchMap(body => {
             const stream$ = analysisHttpService.predict$(body);
 
-            return loaderService.showUntilRedirected$(stream$).pipe(
+            return loaderService.showUntilRedirected$(stream$, 'Analyzing').pipe(
               tapResponse({
                 next: analysis => {
                   patchState(store, setEntity(analysis));
@@ -62,10 +62,5 @@ export const AnalysesStore = signalStore(
         ),
       ),
     };
-  }),
-  withHooks({
-    onInit(store) {
-      store.fetchPredictedAnalysis();
-    },
   }),
 );

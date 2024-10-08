@@ -17,4 +17,8 @@ export class AuthApiService {
   register$(body: RegisterRequestBody): Observable<void> {
     return this.http.post<void>(environment.endpoints.auth.register, body);
   }
+
+  logout$(): Observable<void> {
+    return this.http.delete<void>(environment.endpoints.auth.logout);
+  }
 }
