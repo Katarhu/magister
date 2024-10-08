@@ -1,4 +1,4 @@
-export namespace AnalysisFunctions {
+export namespace AnalysesListItemFunctions {
   export const formatAnalysisDate = (date: Date) => {
     const day = date.getDate();
     const month = date.toLocaleDateString('en-US', { month: 'short' });

@@ -2,4 +2,16 @@
   <div class="global-loader-overlay">
     <mat-spinner />
   </div>
+} @else if (isRedirecting()) {
+  <div class="global-loader-overlay">
+    <div class="global-loader-redirect-container">
+      <span class="global-loader-redirect-text">Redirecting</span>
+
+      <div class="global-loader-wave-container">
+        <span class="global-loader-dot"></span>
+        <span class="global-loader-dot"></span>
+        <span class="global-loader-dot"></span>
+      </div>
+    </div>
+  </div>
 }

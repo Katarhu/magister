@@ -11,9 +11,9 @@ export const environment = {
       me: `${API_URL}/users/me`,
       changePassword: `${API_URL}/users/password`,
     },
-    analysis: {
+    analyses: {
       predict: `${API_URL}/analyses/predict`,
-      fetchPredictedAnalyses: `${API_URL}/analyses`,
+      fetchPredictedAnalyses: `${API_URL}/analyses/history`,
     },
   },
 };

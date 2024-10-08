@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AnalysisStore } from '@features/analysis/store/analysis.store';
-import { AnalysisComponent } from '@features/analysis/components/analysis/analysis.component';
+import { AnalysesStore } from '@features/analyses/store/analyses.store';
+import { AnalysesListItemComponent } from '@features/analyses/components/analysis-list-item/analyses-list-item.component';
 
 @Component({
   selector: 'app-analyses-list',
@@ -8,10 +8,10 @@ import { AnalysisComponent } from '@features/analysis/components/analysis/analys
   styleUrl: './analyses-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [AnalysisComponent],
+  imports: [AnalysesListItemComponent],
 })
 export class AnalysesListComponent {
-  private readonly analysesStore = inject(AnalysisStore);
+  private readonly analysesStore = inject(AnalysesStore);
 
   predictedAnalyses = this.analysesStore.entities;
 }

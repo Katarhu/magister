@@ -1,5 +1,5 @@
-import { ImageUploadConstants } from '@features/analysis/components/image-upload/image-upload.constants';
-import { IAnalysisImage } from '@features/analysis/analysis.models';
+import { ImageUploadConstants } from '@features/analyses/components/image-upload/image-upload.constants';
+import { IAnalysisImage } from '@features/analyses/analyses.models';
 
 export namespace ImageUploadFunctions {
   export const isImageTypeAllowed = (type: string): boolean => {

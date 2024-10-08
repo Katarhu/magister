@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ImageUploadFunctions } from '@features/analysis/components/image-upload/image-upload.functions';
+import { ImageUploadFunctions } from '@features/analyses/components/image-upload/image-upload.functions';
 import { NgClass } from '@angular/common';
-import { ImageUploadConstants } from '@features/analysis/components/image-upload/image-upload.constants';
-import { AnalysisStore } from '@features/analysis/store/analysis.store';
-import { IAnalysisImage } from '@features/analysis/analysis.models';
+import { ImageUploadConstants } from '@features/analyses/components/image-upload/image-upload.constants';
+import { AnalysesStore } from '@features/analyses/store/analyses.store';
+import { IAnalysisImage } from '@features/analyses/analyses.models';
 import { MatCard } from '@angular/material/card';
 import { animate, style, transition, trigger } from '@angular/animations';
 
@@ -35,7 +35,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class ImageUploadComponent {
   private readonly snackbar = inject(MatSnackBar);
-  private readonly analysisStore = inject(AnalysisStore);
+  private readonly analysesStore = inject(AnalysesStore);
 
   uploadedImage = signal<IAnalysisImage | null>(null);
   uploadedImageSrc = computed(() =>
@@ -46,7 +46,7 @@ export class ImageUploadComponent {
   handleUploadImage(): void {
     if (this.uploadedImage() === null) return;
 
-    this.analysisStore.predict({
+    this.analysesStore.predict({
       image: this.uploadedImage() as IAnalysisImage,
     });
 

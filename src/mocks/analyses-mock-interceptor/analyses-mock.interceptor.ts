@@ -2,12 +2,12 @@ import { HttpHandlerFn, HttpRequest, HttpResponse } from '@angular/common/http';
 import { MockInterceptorRegistryService } from '@/mocks/mock-interceptor-registry/mock-interceptor-registry.service';
 import { environment } from '@environments/environment';
 import { of } from 'rxjs';
-import { IAnalysis } from '@features/analysis/analysis.models';
+import { IAnalysis } from '@features/analyses/analyses.models';
 
-export const analysisMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
+export const analysesMockInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   const registry = new MockInterceptorRegistryService();
 
-  registry.get(environment.endpoints.analysis.fetchPredictedAnalyses, () => {
+  registry.get(environment.endpoints.analyses.fetchPredictedAnalyses, () => {
     return of(
       new HttpResponse<IAnalysis[]>({
         body: [
@@ -39,7 +39,7 @@ export const analysisMockInterceptor = (req: HttpRequest<unknown>, next: HttpHan
     );
   });
 
-  registry.post(environment.endpoints.analysis.predict, () => {
+  registry.post(environment.endpoints.analyses.predict, () => {
     return of(
       new HttpResponse<IAnalysis>({
         body: {

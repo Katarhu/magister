@@ -22,6 +22,10 @@ export default [
         path: 'analyses',
         loadComponent: () => import('./analyses/analyses-page.component'),
       },
+      {
+        path: 'analyses/:id',
+        loadComponent: () => import('./analysis/analysis-page.component'),
+      },
     ],
   },
 ] satisfies Routes;
