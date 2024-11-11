@@ -8,12 +8,12 @@ export const environment = {
       logout: `${API_URL}/auth/logout`,
     },
     users: {
-      me: `${API_URL}/users/me`,
-      changePassword: `${API_URL}/users/password`,
+      me: `${API_URL}/profile`,
+      changePassword: `${API_URL}/profile`,
     },
     analyses: {
-      predict: `${API_URL}/analyses/predict`,
-      fetchPredictedAnalyses: `${API_URL}/analyses/history`,
+      predict: `${API_URL}/analysis/predict`,
+      fetchPredictedAnalyses: `${API_URL}/analysis/history`,
     },
   },
 };
