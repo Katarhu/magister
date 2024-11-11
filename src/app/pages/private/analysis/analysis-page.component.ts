@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, inject, Input } from '@angular/core';
-import { AnalysesStore } from '@features/analyses/store/analyses.store';
-import { IAnalysis } from '@features/analyses/analyses.models';
-import { EntityMap } from '@ngrx/signals/entities';
+import { ChangeDetectionStrategy, Component, inject, Input, OnInit, signal } from '@angular/core';
+import { IExtendedAnalysis } from '@features/analyses/analyses.models';
 import { AnalysisComponent } from '@features/analyses/components/analysis/analysis.component';
 import { AnalysisSkeletonLoaderComponent } from '@features/analyses/components/analysis-skeleton-loader/analysis-skeleton-loader.component';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { AnalysesHttpService } from '@features/analyses/services/analyses-http.service';
+import { finalize, take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-analysis-page',
@@ -15,21 +15,27 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [AnalysisComponent, AnalysisSkeletonLoaderComponent, MatButton, RouterLink],
 })
-export default class AnalysisPageComponent {
-  private readonly analysesStore = inject(AnalysesStore);
+export default class AnalysisPageComponent implements OnInit {
+  private readonly analysesHttpService = inject(AnalysesHttpService);
 
   @Input()
   id!: string;
 
-  isAnalysesLoading = this.analysesStore.loading;
-  predictedAnalysesMap = this.analysesStore.entityMap;
-  analysis = computed(() => this.getAnalysisEntityMap(this.predictedAnalysesMap()));
+  analysis = signal<IExtendedAnalysis | null>(null);
+  isAnalysisLoading = signal<boolean>(true);
 
-  private getAnalysisEntityMap(map: EntityMap<IAnalysis>): IAnalysis | null {
-    const analysis = map[this.id];
-
-    if (!analysis) return null;
-
-    return analysis;
+  ngOnInit() {
+    this.analysesHttpService
+      .fetchPredictedAnalysis$(this.id)
+      .pipe(
+        take(1),
+        tap(() => this.isAnalysisLoading.set(true)),
+        finalize(() => this.isAnalysisLoading.set(false)),
+      )
+      .subscribe({
+        next: analysis => {
+          this.analysis.set(analysis);
+        },
+      });
   }
 }

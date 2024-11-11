@@ -15,6 +15,7 @@ import { UsersService } from '@features/users/services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '@features/users/users.models';
 import { LoginRequestBody } from '@features/auth/models/auth-http.models';
+import { AuthTokenService } from '@services/auth-token.service';
 
 @Component({
   selector: 'app-login-page',
@@ -41,6 +42,7 @@ export default class LoginPageComponent {
   private readonly usersApiService = inject(UsersApiService);
   private readonly usersService = inject(UsersService);
   private readonly router = inject(Router);
+  private readonly authTokenService = inject(AuthTokenService);
 
   loginForm = this.fb.group<LoginForm>({
     username: this.fb.control('', [Validators.required]),
@@ -53,7 +55,10 @@ export default class LoginPageComponent {
     }
 
     const loginRequestBody = this.buildLoginBody();
-    const loginProcess$ = this.authApiService.login$(loginRequestBody).pipe(switchMap(() => this.fetchUser$()));
+    const loginProcess$ = this.authApiService.login$(loginRequestBody).pipe(
+      tap(loginResponse => this.authTokenService.setToken(loginResponse.access_token)),
+      switchMap(() => this.fetchUser$()),
+    );
 
     this.loaderService.showUntilCompleted$(loginProcess$).subscribe({
       next: () => {

@@ -16,5 +16,5 @@ import { formatAnalysisDate } from '@app/tools/utils/format-date';
 })
 export class AnalysesListItemComponent {
   analysis = input.required<IAnalysis>();
-  displayDate = computed(() => formatAnalysisDate(this.analysis().created_at));
+  displayDate = computed(() => formatAnalysisDate(new Date(this.analysis().created_at)));
 }

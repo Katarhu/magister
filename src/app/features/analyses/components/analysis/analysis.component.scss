@@ -70,6 +70,26 @@
   text-align: justify-all;
 }
 
+.analysis-section-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.analysis-descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .analysis-result-description {
   line-height: 1.5rem;
+}
+
+.analysis-description-container {
+  padding-block: 2rem;
+}
+
+.analysis-section-list {
+  display: flex;
+  flex-direction: column;
 }

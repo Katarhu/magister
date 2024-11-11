@@ -3,6 +3,10 @@ export interface LoginRequestBody {
   password: string;
 }
 
+export interface LoginResponseBody {
+  access_token: string;
+}
+
 export interface RegisterRequestBody {
   username: string;
   email: string;

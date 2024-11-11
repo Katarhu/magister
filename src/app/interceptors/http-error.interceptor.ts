@@ -12,7 +12,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
         return throwError(() => error);
       }
 
-      return alertService.open(error.error.message).pipe(switchMap(() => throwError(() => error)));
+      return alertService.open(error.message).pipe(switchMap(() => throwError(() => error)));
     }),
   );
 };
